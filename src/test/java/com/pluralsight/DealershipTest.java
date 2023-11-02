@@ -24,6 +24,9 @@ class DealershipTest {
 
     @Test
     void getVehiclesByMakeModel() {
+        Vehicle car = new Vehicle(1, 2000, "car", "fancy", "wheels", "blue", 15000, 211.00);
+        assertEquals("car", car.getMake());
+        assertEquals("fancy", car.getModel());
 
     }
 }
