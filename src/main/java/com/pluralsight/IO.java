@@ -63,18 +63,10 @@ public class IO {
         boolean running = true;
         System.out.println(prompt);
         while (running) {
-            try {
-                int input = Integer.parseInt(scanner.next().charAt(0) + "");
+            int input = scanner.nextInt();
 
-                System.out.println(input);
-                if(input >= 0) {
-                    return input;
-                }
-            } catch (Exception e) {
-                running = false;
-                System.out.println("Invalid format.");
-            }
-            running = false;
+            System.out.println(input);
+            return input;
         }
         return 0;
     }

@@ -32,7 +32,7 @@ public class UserInterface {
                     8) Add Vehicle
                     9) Remove Vehicle
                     """);
-            int userInput = scanner.nextInt();
+            int userInput = IO.getIntInput(scanner, "Pick a number");
             switch (userInput){
                 case 1:
                     processGetByPriceRequest(scanner);
@@ -63,9 +63,8 @@ public class UserInterface {
                     break;
 
             }
-            scanner.close();
-
         }
+        scanner.close();
     };
 
     private Dealership init(){
