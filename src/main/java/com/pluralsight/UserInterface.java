@@ -1,5 +1,6 @@
 package com.pluralsight;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class UserInterface {
@@ -14,7 +15,7 @@ public class UserInterface {
 
 
     public void display(){
-        init();
+        Dealership dealership = init() ;
         boolean displayIsRunning= true;
         Scanner scanner= new Scanner(System.in);
         while(displayIsRunning){
@@ -52,7 +53,7 @@ public class UserInterface {
                     processGetByVehicleTypeRequest(scanner);
                     break;
                 case 7:
-                    processGetAllVehiclesRequest(scanner);
+                    processGetAllVehiclesRequest();
                     break;
                 case 8:
                     processAddVehicleRequest(scanner);
@@ -89,8 +90,8 @@ public class UserInterface {
     public void processGetByVehicleTypeRequest(Scanner scanner){
         ;
     }
-    public void processGetAllVehiclesRequest(Scanner scanner){
-        ;
+    public void processGetAllVehiclesRequest(){
+        displayVehicles((dealership.getAllVehicles()));
     }
     public void processAddVehicleRequest(Scanner scanner){
         ;
@@ -98,6 +99,13 @@ public class UserInterface {
     public void processRemoveVehicleRequest(Scanner scanner){
         ;
     }
+    private static void displayVehicles(ArrayList<Vehicle> vehicles){
+        for(Vehicle x : vehicles){
+            System.out.println(x);
+        }
+    }
+
+
 
 }
 
