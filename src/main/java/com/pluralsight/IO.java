@@ -29,7 +29,6 @@ public class IO {
             }
             running = false;
         }
-        //Placeholder return statement
         return LocalDate.now();
     }
 
