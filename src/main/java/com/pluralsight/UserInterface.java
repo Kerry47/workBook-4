@@ -32,7 +32,7 @@ public class UserInterface {
                     8) Add Vehicle
                     9) Remove Vehicle
                     """);
-            int userInput= IO.getIntInput(scanner, "Enter a Number:");
+            int userInput = scanner.nextInt();
             switch (userInput){
                 case 1:
                     processGetByPriceRequest(scanner);
@@ -61,6 +61,7 @@ public class UserInterface {
                 case 9:
                     processRemoveVehicleRequest(scanner);
                     break;
+
             }
             scanner.close();
 
@@ -101,7 +102,7 @@ public class UserInterface {
     }
     private static void displayVehicles(ArrayList<Vehicle> vehicles){
         for(Vehicle x : vehicles){
-            System.out.println(x);
+            System.out.println(x + "\n");
         }
     }
 

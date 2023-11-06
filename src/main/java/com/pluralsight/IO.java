@@ -64,13 +64,14 @@ public class IO {
         System.out.println(prompt);
         while (running) {
             try {
-                int intInput = scanner.nextInt();
-                scanner.nextLine();
+                int input = Integer.parseInt(scanner.next().charAt(0) + "");
 
-                if(intInput >= 0) {
-                    return intInput;
+                System.out.println(input);
+                if(input >= 0) {
+                    return input;
                 }
             } catch (Exception e) {
+                running = false;
                 System.out.println("Invalid format.");
             }
             running = false;
