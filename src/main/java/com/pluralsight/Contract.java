@@ -37,7 +37,7 @@ abstract class Contract {
         this.customerEmail = customerEmail;
     }
 
-    public Vehicle isVehicleSold() {
+    public Vehicle getVehicleSold() {
         return vehicleSold;
     }
 
@@ -49,3 +49,4 @@ abstract class Contract {
     public abstract double getMonthlyPayment();
 
 }
+//

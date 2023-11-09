@@ -1,11 +1,22 @@
 package com.pluralsight;
 
 public class SalesContract extends Contract{
+    private final double salesTaxAmount=.05;
+    private final int recordingFee=100;
     private double processingFee;
     private double loanRate;
     private int loanTerm;
     private boolean isFinanced;
-    public SalesContract(String date, String customerName, String customerEmail, Vehicle vehicleSold,boolean isFinanced) {
+
+    public boolean isFinanced() {
+        return isFinanced;
+    }
+
+    public void setFinanced(boolean financed) {
+        isFinanced = financed;
+    }
+
+    public SalesContract(String date, String customerName, String customerEmail, Vehicle vehicleSold, boolean isFinanced) {
         super(date, customerName, customerEmail, vehicleSold);
 
 
@@ -23,14 +34,20 @@ public class SalesContract extends Contract{
 
     @Override
     public double getTotalPrice() {
-        return 0;
+        double fees = (getVehicleSold().getPrice() * salesTaxAmount) + processingFee + recordingFee;
+
+        return isFinanced ? (getMonthlyPayment() * loanTerm) + fees :
+                getVehicleSold().getPrice() + fees;
     }
+    //(monthlyPayment * loanTerm) + processingFee +recordingFee +(salesTaxAmount *v.getPrice())
 
     @Override
     public double getMonthlyPayment() {
-        if (!isFinanced) return 0;
-
-        return 100;
+        if (!isFinanced){
+            return 0;
+        }
+        double monthlyPayment= (getVehicleSold().getPrice())*(loanRate/12);
+        return monthlyPayment;
     }
 
 }
