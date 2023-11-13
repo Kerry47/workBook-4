@@ -14,14 +14,14 @@ public class Vehicle {
     @Override
     public String toString() {
         return
-               vin +
-                " | " + year +
-                       " | "+ make +
-                       " | " + model +
-                       " | " + vehicleType +
-                       " | " + color +
-                       " | "+ odometer +
-                       " | " + price
+                vin +
+                        " | " + year +
+                        " | " + make +
+                        " | " + model +
+                        " | " + vehicleType +
+                        " | " + color +
+                        " | " + odometer +
+                        " | " + price
                 ;
     }
 

@@ -54,10 +54,10 @@ public class DealershipFileManager {
                     dealership.getPhone(),
                     dealership.getAllVehicles());
 
-                bufWriter.write(info + "\n");
-                System.out.println("\nThank you. Your entry has been saved.");
+            bufWriter.write(info + "\n");
+            System.out.println("\nThank you. Your entry has been saved.");
 
-                bufWriter.close();
+            bufWriter.close();
 
         } catch (IOException e) {
             throw new RuntimeException(e);

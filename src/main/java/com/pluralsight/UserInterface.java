@@ -5,20 +5,24 @@ import java.util.Scanner;
 
 public class UserInterface {
 
-
     Dealership dealership;
+
     public UserInterface(Dealership dealership) {
         this.dealership = dealership;
     }
 
-    public UserInterface(){};
+    public UserInterface() {
+    }
 
+    public void display() {
+        Dealership dealership = init();
 
-    public void display(){
-        Dealership dealership = init() ;
-        boolean displayIsRunning= true;
-        Scanner scanner= new Scanner(System.in);
-        while(displayIsRunning){
+        boolean displayIsRunning = true;
+
+        Scanner scanner = new Scanner(System.in);
+
+        while (displayIsRunning) {
+
             System.out.println("""
                     Welcome to the Home Screen!
                     Please Enter One of The Following Commands:
@@ -32,81 +36,70 @@ public class UserInterface {
                     8) Add Vehicle
                     9) Remove Vehicle
                     """);
-            int userInput = IO.getIntInput(scanner, "Pick a number");
-            switch (userInput){
-                case 1:
-                    processGetByPriceRequest(scanner);
-                    break;
-                case 2:
-                    processGetMakeModelRequest(scanner);
-                    break;
-                case 3:
-                    processGetByYearRequest(scanner);
-                    break;
-                case 4:
-                    processGetByColorRequest(scanner);
-                    break;
-                case 5:
-                    processGetByMileageRequest(scanner);
-                    break;
-                case 6:
-                    processGetByVehicleTypeRequest(scanner);
-                    break;
-                case 7:
-                    processGetAllVehiclesRequest();
-                    break;
-                case 8:
-                    processAddVehicleRequest(scanner);
-                    break;
-                case 9:
-                    processRemoveVehicleRequest(scanner);
-                    break;
 
+            int userInput = IO.getIntInput(scanner, "Pick a number");
+            switch (userInput) {
+                case 1 -> processGetByPriceRequest(scanner);
+                case 2 -> processGetMakeModelRequest(scanner);
+                case 3 -> processGetByYearRequest(scanner);
+                case 4 -> processGetByColorRequest(scanner);
+                case 5 -> processGetByMileageRequest(scanner);
+                case 6 -> processGetByVehicleTypeRequest(scanner);
+                case 7 -> processGetAllVehiclesRequest();
+                case 8 -> processAddVehicleRequest(scanner);
+                case 9 -> processRemoveVehicleRequest(scanner);
             }
         }
         scanner.close();
-    };
+    }
 
-    private Dealership init(){
-        DealershipFileManager dfm= new DealershipFileManager();
-        dealership= dfm.getDealership();
+    private Dealership init() {
+        DealershipFileManager dfm = new DealershipFileManager();
+        dealership = dfm.getDealership();
         return dealership;
     }
-    public void processGetByPriceRequest(Scanner scanner){
+
+    public void processGetByPriceRequest(Scanner scanner) {
         ;
     }
-    public void processGetMakeModelRequest(Scanner scanner){
+
+    public void processGetMakeModelRequest(Scanner scanner) {
         ;
     }
-    public void processGetByYearRequest(Scanner scanner){
+
+    public void processGetByYearRequest(Scanner scanner) {
         ;
     }
-    public void processGetByColorRequest(Scanner scanner){
+
+    public void processGetByColorRequest(Scanner scanner) {
         ;
     }
-    public void processGetByMileageRequest(Scanner scanner){
+
+    public void processGetByMileageRequest(Scanner scanner) {
         ;
     }
-    public void processGetByVehicleTypeRequest(Scanner scanner){
-        ;
+
+    public void processGetByVehicleTypeRequest(Scanner scanner) {
+
     }
-    public void processGetAllVehiclesRequest(){
+
+    public void processGetAllVehiclesRequest() {
         displayVehicles((dealership.getAllVehicles()));
     }
-    public void processAddVehicleRequest(Scanner scanner){
+
+    public void processAddVehicleRequest(Scanner scanner) {
         ;
     }
-    public void processRemoveVehicleRequest(Scanner scanner){
+
+    public void processRemoveVehicleRequest(Scanner scanner) {
         ;
     }
-    private static void displayVehicles(ArrayList<Vehicle> vehicles){
-        for(Vehicle x : vehicles){
+
+    private static void displayVehicles(ArrayList<Vehicle> vehicles) {
+        for (Vehicle x : vehicles) {
             System.out.println(x + "\n");
         }
     }
-
-
-
 }
 
 

@@ -11,11 +11,13 @@ public class IO {
     private static final String TIME_FORMAT = "HH:mm:ss";
 
     private static final DateTimeFormatter TIME_FORMATTER = DateTimeFormatter.ofPattern(TIME_FORMAT);
-    public static LocalDate localDateFormatter(String date){
+
+    public static LocalDate localDateFormatter(String date) {
         DateTimeFormatter DATE_FORMATTER = DateTimeFormatter.ofPattern(DATE_FORMAT);
         return LocalDate.parse(date, DATE_FORMATTER);
     }
-    public static LocalDate getDateInput(Scanner scanner, String prompt){
+
+    public static LocalDate getDateInput(Scanner scanner, String prompt) {
         LocalDate dateInput;
         boolean running = true;
         System.out.println(prompt);
@@ -24,7 +26,7 @@ public class IO {
                 String date = scanner.nextLine();
                 dateInput = localDateFormatter(date);
                 return dateInput;
-            }catch(Exception e){
+            } catch (Exception e) {
                 System.out.println("Please enter the time in the correct format (yyyy-MM-dd):");
             }
             running = false;
@@ -40,7 +42,7 @@ public class IO {
             try {
                 String time = scanner.nextLine();
                 return LocalTime.parse(time);
-            }catch(Exception e){
+            } catch (Exception e) {
                 System.out.println("Please enter the time in the correct format (HH:mm:ss):");
             }
             running = false;
@@ -49,17 +51,17 @@ public class IO {
         return LocalTime.now();
     }
 
-    public static String getStringInput(Scanner scanner, String prompt){
+    public static String getStringInput(Scanner scanner, String prompt) {
         System.out.println(prompt);
         return scanner.nextLine().trim();
     }
 
-    public static Character getCharInput(Scanner scanner, String prompt){
+    public static Character getCharInput(Scanner scanner, String prompt) {
         System.out.println(prompt);
         return scanner.nextLine().charAt(0);
     }
 
-    public static int getIntInput(Scanner scanner, String prompt){
+    public static int getIntInput(Scanner scanner, String prompt) {
         boolean running = true;
         System.out.println(prompt);
         while (running) {

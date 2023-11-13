@@ -1,8 +1,8 @@
 package com.pluralsight;
 
-public class SalesContract extends Contract{
-    private final double salesTaxAmount=.05;
-    private final int recordingFee=100;
+public class SalesContract extends Contract {
+    private final double salesTaxAmount = .05;
+    private final int recordingFee = 100;
     private double processingFee;
     private double loanRate;
     private int loanTerm;
@@ -20,14 +20,14 @@ public class SalesContract extends Contract{
         super(date, customerName, customerEmail, vehicleSold);
 
 
-        if(vehicleSold.getPrice()>=10000){
-            processingFee= 495;
-            loanRate=.0425;
-            loanTerm=48;
-        }else{
-            processingFee=295;
-            loanRate=.0525;
-            loanTerm= 24;
+        if (vehicleSold.getPrice() >= 10000) {
+            processingFee = 495;
+            loanRate = .0425;
+            loanTerm = 48;
+        } else {
+            processingFee = 295;
+            loanRate = .0525;
+            loanTerm = 24;
         }
 
     }
@@ -43,10 +43,10 @@ public class SalesContract extends Contract{
 
     @Override
     public double getMonthlyPayment() {
-        if (!isFinanced){
+        if (!isFinanced) {
             return 0;
         }
-        double monthlyPayment= (getVehicleSold().getPrice())*(loanRate/12);
+        double monthlyPayment = (getVehicleSold().getPrice()) * (loanRate / 12);
         return monthlyPayment;
     }
 
